@@ -167,3 +167,140 @@
 # for i in range(len(dic_sort)):
 #     for j in range(dic_sort[i][1]):
 #         print(dic_sort[i][0])
+
+
+# 1874 스택 수열
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# n = int(input())
+# arr = []
+# arr2 = []
+# result = []
+# count = 0
+# for i in range(n):
+#     arr.append(int(input()))
+#
+# for i in range(1, n+1):
+#     arr2.append(i)
+#     result.append('+')
+#     while len(arr2) != 0 and arr[count] == arr2[-1]:
+#         arr2.pop(-1)
+#         result.append('-')
+#         count += 1
+# if count != len(arr):
+#     print('NO')
+# else:
+#     for i in result:
+#         print(i)
+
+
+# 4949 균형잡힌 세상
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# while True:
+#     arr = []
+#     text = input().rstrip()
+#     confirm = 0
+#     for i in range(len(text)):
+#         if text[i] == '(':
+#             arr.append(1)
+#         elif text[i] == ')':
+#             if len(arr) == 0 or arr[-1] == 2:
+#                 confirm = 1
+#                 break
+#             if arr[-1] == 1:
+#                 arr.pop()
+#         elif text[i] == '[':
+#             arr.append(2)
+#         elif text[i] == ']':
+#             if len(arr) == 0 or arr[-1] == 1:
+#                 confirm = 1
+#                 break
+#             if arr[-1] == 2:
+#                 arr.pop()
+#
+#     if text == '.':
+#         break
+#
+#     if len(arr) == 0 and confirm == 0:
+#         print('yes')
+#     else:
+#         print('no')
+
+
+# 11651 좌표 정렬하기 2
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# n = int(input())
+# arr = []
+# for i in range(n):
+#     a, b = map(int, input().split())
+#     arr.append((a, b))
+#
+# arr.sort(key=lambda x: (x[1], x[0]))
+#
+# for i in arr:
+#     print(i[0], i[1])
+
+
+# 1764 듣보잡
+
+# n, m = map(int, input().split())
+# set_first = set()
+# set_second = set()
+#
+# for i in range(n):
+#     set_first.add(input())
+#
+# for i in range(m):
+#     set_second.add(input())
+#
+# set_result = set.intersection(set_first, set_second)
+#
+# set_final = sorted(set_result)
+#
+# print(len(set_final))
+# for i in set_final:
+#     print(i)
+
+
+# 11723 집합
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# n = int(input())
+# S = [0] * 21
+#
+# for i in range(n):
+#     a = input().rstrip().split()
+#     if len(a) == 2:
+#         b = int(a[1])
+#     if a[0] == 'add':
+#         S[b] = 1
+#     elif a[0] == 'remove':
+#         S[b] = 0
+#     elif a[0] == 'check':
+#         if S[b] == 1:
+#             print(1)
+#         else:
+#             print(0)
+#     elif a[0] == 'toggle':
+#         if S[b] == 1:
+#             S[b] = 0
+#         else:
+#             S[b] = 1
+#     elif a[0] == 'all':
+#         S = [1] * 21
+#     elif a[0] == 'empty':
+#         S = [0] * 21
