@@ -274,3 +274,105 @@
 #         arr[i] = min(arr[i], arr[i - 1] + 1)
 #
 # print(arr[n])
+
+
+# 1260 DFS와 BFS
+
+# import sys
+# from collections import deque
+#
+# input = sys.stdin.readline
+#
+# n, m, v = map(int, input().split())
+#
+# arr = [[] for _ in range(n + 1)]
+#
+# for i in range(m):
+#     a, b = map(int, input().split())
+#     arr[a].append(b)
+#     arr[b].append(a)
+#
+# for i in range(n + 1):
+#     arr[i].sort()
+#
+# dfs_visited = [False] * (n + 1)
+# bfs_visited = [False] * (n + 1)
+#
+#
+# def dfs(graph, k, visited):
+#     visited[k] = True
+#     print(k, end=' ')
+#     for j in graph[k]:
+#         if not visited[j]:
+#             dfs(graph, j, visited)
+#
+#
+# def bfs(graph, start, visited):
+#     queue = deque([start])
+#     visited[start] = True
+#     while queue:
+#         k = queue.popleft()
+#         print(k, end=' ')
+#         for j in graph[k]:
+#             if not visited[j]:
+#                 queue.append(j)
+#                 visited[j] = True
+#
+#
+# dfs(arr, v, dfs_visited)
+# print('')
+# bfs(arr, v, bfs_visited)
+
+
+# 1676 팩토리얼 0의 개수
+
+# n = int(input())
+# number = 1
+# count = -1
+#
+# for i in range(1, n + 1):
+#     number *= i
+#
+# while str(number)[count] == '0':
+#     count -= 1
+#
+# print(count * (-1) - 1)
+
+
+# 11724 연결 요소의 개수
+
+# from collections import deque
+# import sys
+#
+# input = sys.stdin.readline
+#
+# n, m = map(int, input().split())
+#
+# arr = [[] for _ in range(n + 1)]
+#
+# for i in range(m):
+#     a, b = map(int, input().split())
+#     arr[a].append(b)
+#     arr[b].append(a)
+#
+# visited = [False] * (n + 1)
+# count = 0
+#
+#
+# def bfs(graph, k, visited):
+#     queue = deque([k])
+#     visited[k] = True
+#     while queue:
+#         v = queue.popleft()
+#         for j in graph[v]:
+#             if not visited[j]:
+#                 queue.append(j)
+#                 visited[j] = True
+#
+#
+# for i in range(1, n + 1):
+#     if not visited[i]:
+#         bfs(arr, i, visited)
+#         count += 1
+#
+# print(count)
