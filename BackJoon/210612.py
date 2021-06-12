@@ -237,3 +237,72 @@
 # for i in arr:
 #     if i != 0:
 #         print(i)
+
+
+# 17219 비밀번호 찾기
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# n, m = map(int, input().split())
+#
+# dic = {}
+#
+# for i in range(n):
+#     a, b = map(str, input().split())
+#     dic[a] = b
+#
+# for i in range(m):
+#     print(dic[input().rstrip()])
+
+
+# 11403 경로 찾기
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# n = int(input())
+# arr = []
+#
+# for i in range(n):
+#     arr2 = list(map(int, input().rstrip().split()))
+#     arr.append(arr2)
+#
+# for k in range(n):
+#     for a in range(n):
+#         for b in range(n):
+#             if arr[a][k] + arr[k][b] == 2:
+#                 arr[a][b] = 1
+#
+# for i in range(n):
+#     for j in range(n):
+#         print(arr[i][j], end=' ')
+#     print('')
+
+
+# 11399 ATM
+
+# import sys
+# import heapq
+#
+# input = sys.stdin.readline
+#
+# n = int(input())
+#
+# arr = list(map(int, input().rstrip().split()))
+#
+# heap = []
+#
+# for i in arr:
+#     heapq.heappush(heap, i)
+#
+# total = 0
+# count = 0
+#
+# while heap:
+#     count += heapq.heappop(heap)
+#     total += count
+#
+# print(total)
