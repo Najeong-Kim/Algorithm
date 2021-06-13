@@ -332,3 +332,102 @@
 #     arr[i] = arr[i - 1] + arr[i - 2] * 2
 #
 # print(arr[n] % 10007)
+
+
+# 5525 IOIOI
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# n = int(input())
+# m = int(input())
+# s = input()
+#
+# result = 0
+# count = 0
+#
+# for i in range(len(s)):
+#     if s[i] == 'O' and count % 2 == 1:
+#         count += 1
+#     elif s[i] == 'O' and count % 2 == 0:
+#         count = 0
+#     elif s[i] == 'I' and count % 2 == 0:
+#         count += 1
+#     elif s[i] == 'I' and count % 2 == 1:
+#         count = 1
+#     if count == ((n * 2) + 1):
+#         result += 1
+#         count = (n * 2) - 1
+#
+# print(result)
+
+
+# 1541 잃어버린 괄호
+
+# import sys
+#
+# input = sys.stdin.readline
+#
+# word = list(map(str, input().rstrip()))
+# check = 0
+# number = ''
+# result = []
+#
+# for i in word:
+#     if i.isdigit():
+#         number += i
+#     else:
+#         if check == 0:
+#             result.append(int(number))
+#         if check == 1:
+#             result.append(int(number) * -1)
+#         if i == '-':
+#             check = 1
+#         number = ''
+#
+# if check == 0:
+#     result.append(int(number))
+# if check == 1:
+#     result.append(int(number) * -1)
+#
+# print(sum(result))
+
+
+# 2178 미로 탐색
+
+# import sys
+# from collections import deque
+#
+# input = sys.stdin.readline
+#
+# n, m = map(int, input().split())
+# arr = []
+# queue = deque()
+#
+# for i in range(n):
+#     arr2 = list(map(int, input().rstrip()))
+#     arr.append(arr2)
+#
+# queue.append((0, 0, 1))
+#
+# visited = [[False] * m for _ in range(n)]
+#
+# visited[0][0] = True
+#
+# dx = [-1, 1, 0, 0]
+# dy = [0, 0, -1, 1]
+#
+# while queue:
+#     x, y, c = queue.popleft()
+#     for i in range(4):
+#         nx = x + dx[i]
+#         ny = y + dy[i]
+#         if nx < 0 or ny < 0 or nx >= n or ny >= m:
+#             continue
+#         if not visited[nx][ny] and arr[nx][ny] != 0:
+#             arr[nx][ny] = c + 1
+#             visited[nx][ny] = True
+#             queue.append((nx, ny, c + 1))
+#
+# print(arr[n-1][m-1])
