@@ -10,6 +10,7 @@
 #
 # print(arr[N % 15746])
 
+
 # 13305 주유소
 
 # import sys
@@ -26,6 +27,7 @@
 #     cost += city[i] * distance[i]
 #
 # print(cost)
+
 
 # 15649 N과 M (1)
 
